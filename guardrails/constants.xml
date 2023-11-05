@@ -66,13 +66,14 @@ Here are examples of simple (XML, JSON) pairs that show the expected behavior:
 </complete_json_suffix>
 
 <complete_json_suffix_v2>
-Given below is XML that describes the information to extract from this document and the tags to extract it into.
+A continuación se encuentra un XML que describe la información a extraer de este documento y las etiquetas en las que se debe extraer.
 
 ${output_schema}
 
-ONLY return a valid JSON object (no other text is necessary), where the key of the field in JSON is the `name` attribute of the corresponding XML, and the value is of the type specified by the corresponding XML's tag. The JSON MUST conform to the XML format, including any types and format requests e.g. requests for lists, objects and specific types. Be correct and concise.
+SOLO devuelve un objeto JSON válido (no es necesario ningún otro texto), donde la clave del campo en JSON sea el atributo `name` del XML correspondiente y el valor sea del tipo especificado por la etiqueta XML correspondiente. El JSON DEBE cumplir con el formato del XML, incluyendo cualquier solicitud de tipos y formato, como solicitudes de listas, objetos y tipos específicos. Sé correcto y conciso.
 
-Here are examples of simple (XML, JSON) pairs that show the expected behavior:
+
+Aquí tienes ejemplos de pares simples (XML, JSON) que muestran el comportamiento esperado:
 - `<![CDATA[<string name='foo' format='two-words lower-case' />`]]> => `{'foo': 'example one'}`
 - `<![CDATA[<list name='bar'><string format='upper-case' /></list>]]>` => `{"bar": ['STRING ONE', 'STRING TWO', etc.]}`
 - `<![CDATA[<object name='baz'><string name="foo" format="capitalize two-words" /><integer name="index" format="1-indexed" /></object>]]>` => `{'baz': {'foo': 'Some String', 'index': 1}}`
